@@ -1,0 +1,18 @@
+: 1
+name: liboutcome
+version: 2.2.10-a.0.z
+type: lib,binless
+language: c++
+project: outcome
+summary: Lightweight outcome<T> and result<T> error handling C++ library
+license: Apache-2.0 OR BSL-1.0
+topics: error handling, header-only
+description-file: README.md
+package-description-file: PACKAGE-README.md
+url: https://github.com/ned14/outcome
+package-url: https://github.com/build2-packaging/outcome
+package-email: packaging@build2.org ; Mailing list.
+depends: * build2 >= 0.18.0
+depends: * bpkg >= 0.18.0
+depends: libquickcpplib >= 0.0.1-a.0.1
+requires: c++14

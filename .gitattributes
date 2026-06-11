@@ -17,3 +17,7 @@
 # Use `binary` to make sure certain files are never auto-detected as text.
 #
 #*.png binary
+
+# Allow directory symlinks on Windows.
+#
+liboutcome/include/outcome symlink=dir

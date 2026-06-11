@@ -1,0 +1,44 @@
+import intf_libs = libquickcpplib%lib{quickcpplib}
+
+# The vendored status-code and wg14_result submodule trees are restricted
+# to their header payloads (status-code is included by outcome/experimental/
+# headers via relative paths).
+#
+pub_hdrs = {hxx ixx h}{**                                          \
+                       -outcome/experimental/status-code/**        \
+                       -outcome/experimental/wg14_result/**}       \
+           outcome/experimental/status-code/include/{hxx ixx}{**}  \
+           outcome/experimental/wg14_result/include/{hxx h}{**}
+
+./: lib{outcome}: $pub_hdrs                                     \
+    outcome/file{*.natvis *_gdb.py}                             \
+    outcome/experimental/status-code/include/file{**.py}        \
+    $intf_libs
+
+src_pfx = [dir_path] $src_root/include/
+
+# Export options.
+#
+lib{outcome}:
+{
+  cxx.export.poptions = "-I$src_pfx"
+  cxx.export.libs = $intf_libs
+}
+
+# Install into, say, /usr/include/ recreating subdirectories (the public
+# headers are included as <outcome/...> and <outcome.hpp>).
+#
+{hxx ixx h}{*}:
+{
+  install         = include/
+  install.subdirs = true
+}
+
+# The MSVC debugger visualization and GDB pretty-printer files (installed
+# next to the headers, as upstream does).
+#
+file{*.natvis *.py}:
+{
+  install         = include/
+  install.subdirs = true
+}
