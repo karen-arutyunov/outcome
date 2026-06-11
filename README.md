@@ -15,19 +15,13 @@ what dependent libraries such as `llfio` track) using pre-release snapshot
 versions of the next upstream release (for example, `2.2.10-a.0.z` for
 snapshots following the upstream `v2.2.9` release).
 
-The development setup for `outcome` uses the standard `bdep`-based workflow,
-with the `libquickcpplib` dependency satisfied from the `quickcpplib` project
-initialized in the same build configuration. For example:
+The development setup for `outcome` uses the standard `bdep`-based workflow. For example:
 
 ```
-git clone --recurse-submodules .../quickcpplib.git
 git clone --recurse-submodules .../outcome.git
+cd outcome
 
-cd quickcpplib
-bdep init -C ../packaging-gcc @gcc cc config.cxx=g++
-
-cd ../outcome
-bdep init -A ../packaging-gcc @gcc
+bdep init -C @gcc cc config.cxx=g++
 bdep update
 bdep test
 ```

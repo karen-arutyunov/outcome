@@ -1,11 +1,6 @@
 : 1
 summary: outcome project repository
 
-# During local development the libquickcpplib dependency is satisfied from
-# the quickcpplib project initialized in the same build configuration.
-# Uncomment (and adjust, if necessary) once the quickcpplib package
-# repository is published.
-#
-#:
-#role: prerequisite
-#location: https://github.com/build2-packaging/quickcpplib.git#master
+:
+role: prerequisite
+location: https://github.com/wroyca/quickcpplib.git#main
