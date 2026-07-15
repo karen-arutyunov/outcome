@@ -3,4 +3,4 @@ summary: outcome project repository
 
 :
 role: prerequisite
-location: https://github.com/wroyca/quickcpplib.git#main
+location: https://github.com/karen-arutyunov/quickcpplib.git#main
